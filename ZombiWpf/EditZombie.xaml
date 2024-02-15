@@ -1,0 +1,26 @@
+﻿<Window x:Class="ZombiWpf.EditZombie"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ZombiWpf"
+        mc:Ignorable="d"
+        Title="EditZombie" Height="380" Width="550">
+    <Grid>
+        <StackPanel>
+        <StackPanel Background="Cornsilk" DataContext="{Binding SelectedZombie}">
+            <Label Content="Название"/>
+            <TextBox Text="{Binding Name}"/>
+            <Label Content="Здоровье"/>
+            <TextBox Text="{Binding Health}"/>
+            <Label Content="Описание"/>
+            <TextBox Height="75" Text="{Binding Description}"/>
+            <Label Content="Тип зомби"/>
+        </StackPanel>
+            <ComboBox ItemsSource="{Binding ZombieTypes}"
+           SelectedItem="{Binding SelectedZombieType}"
+           DisplayMemberPath="Name"/>
+        </StackPanel>
+        <Button HorizontalAlignment="Center" Margin="0 20" VerticalAlignment="Bottom" Click="Save" FontSize="20" Content="Сохранить" />
+    </Grid>
+</Window>
